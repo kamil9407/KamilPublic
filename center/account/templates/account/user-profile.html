@@ -1,0 +1,71 @@
+{% extends "opinions/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5" style="width:500px; border-radius:20px;">
+
+        <h1>Upload An Image</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Imię</p>
+            {{ profile_form.name}}
+            <p>Nazwisko</p>
+            {{ profile_form.lastname}}
+            <p>Miasto</p>
+            {{ profile_form.city}}
+            <p>Kod Pocztowy</p>
+            {{ profile_form.zipcode}}
+            <p>Dział</p>
+            {{ profile_form.division}}
+            <p>Zdjęcie profilowe</p>
+            {{ profile_form.profile_picture}}
+
+            <br>
+            <br>
+
+            <button type="submit">Dodaj profil</button>
+        </form>
+        
+    </div>
+
+    <br>
+    <br>
+    {% if profile_form.profile_picture %}
+        <div width="50px" height="50px" class="bg-white rounded img-thumbnail avatar">
+
+            
+                
+            <span>
+
+                <img class="rounded avatar"  alt="user_avatar" src="{{profile_form.profile_picture.url}}">
+
+            </span>
+
+        
+                        
+                    
+    
+
+        </div>
+
+        
+
+    
+    {% endif %}
+    <br>
+
+
+</body>
+
+{% endblock %}

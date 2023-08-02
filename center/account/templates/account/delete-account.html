@@ -1,0 +1,42 @@
+{% extends "opinions/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+    
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Usuń konto</h3>
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            <h3>Czy na pewno chcesz usunąć swoje konto?</h3>
+            
+            <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block p-2">&nbsp; Usuń konto</button>
+
+
+
+
+        </form>
+
+        <br>
+        <br>
+
+        
+
+
+    </div>
+
+
+</body>
+
+{% endblock %}

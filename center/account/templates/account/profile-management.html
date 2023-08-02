@@ -1,0 +1,49 @@
+{% extends "opinions/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+    
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Zaktualizuj swoje dane</h3>
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            <h5>Nazwa użytkownika</h5>
+            {{user_form.username}}
+            <br>
+            
+            <h5>Podaj adres email</h5>
+            {{user_form.email}}
+            <br>
+            <br>
+            
+            <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block p-2">&nbsp; Zaktualizuj dane</button>
+
+
+
+
+        </form>
+
+        <br>
+        <br>
+
+        
+
+
+    </div>
+
+
+</body>
+
+{% endblock %}

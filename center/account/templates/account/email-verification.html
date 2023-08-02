@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Witaj!
+
+Dziękujemy za stworzenie konta na naszej stronie!
+
+Proszę, bądź tak miły i zweryfikuj swój email poprzez kliknięcie w poniższy link.
+
+
+http://{{domain}}{% url 'weryfikacja-emaila' uidb64=uid token=token %}
+
+
+{% endautoescape %}

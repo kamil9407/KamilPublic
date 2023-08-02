@@ -1,0 +1,64 @@
+{% extends "opinions/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+    
+    <div class="container bg-white shadow-md p-5">
+        
+
+        <h4> <i class="fa fa-hand-paper-o" aria-hidden="true"></i> &nbsp; Witaj, {{user}} </h4>
+    
+    
+        
+
+        <h3>Jesteś w panelu użytkownika</h3>
+
+        <h5>Wybierz akcję.</h5>
+
+
+
+    </div>
+    <br>
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Zarządzanie kontem</h3>
+        <br>
+        <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'zarzadzanie-kontem' %}"> Zaktualizuj konto </a>
+        
+
+
+
+    </div>
+    <br>
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Usunięcie konta</h3>
+        <br>
+        <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'usun-konto' %}"> Usuń konto </a>
+
+
+
+    </div>
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Dane profilowe</h3>
+        <br>
+
+        <a class="btn btn-primary navbar-btn text-white" type="button"  href="{% url 'profil' %}"> Dane profilowe </a>
+
+
+
+    </div>
+
+
+</body>
+
+{% endblock %}

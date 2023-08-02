@@ -1,0 +1,98 @@
+
+{% extends "./base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+    
+
+
+    <!-- Introduction section -->
+  
+    <section class="py-4 text-center container">
+
+        <div class="row py-lg-5">
+            <div class="container bg-white shadow-md p-5" style="width:1500px; border-bottom:200px;">
+
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    
+
+                    <h4> Książki, gry, prasa </h4>
+
+
+                    <br>
+                    
+
+                    <p class="lead text-muted">
+
+                    Wyraź swoją opinię.
+
+                    </p>
+
+
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+    
+    </section>
+    <section class="py-4 text-center container">
+    <div class="container bg-white shadow-md p-5" style="width:1500px; border-bottom:200px;">
+
+
+        <div class="row py-lg-5">
+        
+            <div class="col-lg-6 col-md-8 mx-auto">
+
+                
+                {% for kategoria in site_category %}
+                        
+                        
+                    <div class="col">
+
+                    <div class="card shadow-sm">
+        
+                            
+        
+                        <div class="card-body">
+
+                            <img class="img-fluid" alt="Responsive image" src="{{kategoria.obraz.url}}">
+                            
+                            <p>{{kategoria.nazwa}}</p>
+                    
+        
+                        </div>
+        
+                    </div>
+                        
+                    </div>
+
+
+
+                    {% endfor %}
+
+            </div>
+        
+        </div>
+
+    </div>
+    </section>
+
+</body>
+{% endblock %}
+
+
+
+
+
+

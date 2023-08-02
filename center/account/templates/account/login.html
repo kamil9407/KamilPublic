@@ -1,0 +1,49 @@
+{% extends "opinions/base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+<body>
+    
+    <div class="container bg-white shadow-md p-5">
+
+        <h3>Zaloguj się na swoje konto</h3>
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            <h5>Nazwa użytkownika</h5>
+            {{form.username}}
+            <br>
+            
+            <h5>Podaj hasło</h5>
+            {{form.password}}
+            <br>
+            <br>
+            <button type="submit" class="btn btn-secondary btn-lg w-100 btn-block p-2">&nbsp; Stwórz konto</button>
+
+            
+            <br>
+            <a href="{% url 'reset_password' %}"> Zapomniałeś hasła? Kliknij tu.</a>
+
+        </form>
+
+        <br>
+        <br>
+
+        
+
+
+    </div>
+
+
+</body>
+
+{% endblock %}
