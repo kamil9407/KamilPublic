@@ -28,7 +28,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 
 
-
+from django.shortcuts import render
+from .models import UserProfile
 
 
 def register(request):
@@ -61,18 +62,23 @@ def register(request):
             user.email_user(subject=subject, message = message)
 
             return redirect('weryfikacja-emaila-wyslana')
-    
+
     context = {'form':form}
 
     return render (request, 'account/registration/register.html', context = context)
 
-@login_required(login_url = 'logowanie')
-def dashboard(request):
-    
-    
+def user_profile_list(request):
+    user_profiles = UserProfile.objects.all()
+    return render(request, 'user_profile_list.html', {'user_profiles': user_profiles})
 
-    return render(request, 'account/dashboard.html')
-@login_required(login_url = 'logowanie')
+@login_required(login_url='logowanie')
+def dashboard(request):
+    my_user = UserProfile.objects.get(id=26)
+    context = {'my_user': my_user}
+    return render(request, 'account/dashboard.html', context=context)
+
+
+@login_required(login_url='logowanie')
 def user_profile(request):
 
     if request.method == 'POST':
