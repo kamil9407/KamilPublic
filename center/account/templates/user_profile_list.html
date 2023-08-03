@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile List</title>
+</head>
+<body>
+    <h1>User Profile List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th>Division</th>
+                <th>Profile Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_profile in user_profiles %}
+            <tr>
+                <td>{{ user_profile.id }}</td>
+                <td>{{ user_profile.name }}</td>
+                <td>{{ user_profile.lastname }}</td>
+                <td>{{ user_profile.city }}</td>
+                <td>{{ user_profile.zipcode }}</td>
+                <td>{{ user_profile.division }}</td>
+                <td><img src="{{ user_profile.profile_picture.url }}" alt="{{ user_profile.name }}" width="100"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
